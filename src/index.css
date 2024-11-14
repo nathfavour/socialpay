@@ -66,6 +66,9 @@
 }
 
 @layer base {
+  .border-border {
+    @apply border-gray-300; /* Define the border-border class */
+  }
   * {
     @apply border-border;
   }
