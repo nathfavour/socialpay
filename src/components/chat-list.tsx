@@ -37,7 +37,7 @@ export function ChatList({ chats, onSelectChat }: ChatListProps) {
               <p className="text-sm text-muted-foreground truncate">{chat.lastMessage}</p>
             </div>
             {chat.unread > 0 && (
-              <Badge variant="secondary" className="bg-accent text-white">
+              <Badge className="bg-accent text-white">
                 {chat.unread}
               </Badge>
             )}

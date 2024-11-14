@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from 'react';
 import { Home, MessageSquare, Users, Bell, Settings, Send, UserPlus, UserCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -53,7 +55,7 @@ const mockChats: Chat[] = Array.from({ length: 15 }, (_, i) => ({
       'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e',
       'https://images.unsplash.com/photo-1534528741775-53994a69daeb'
     ][i % 5],
-    status: ['online', 'offline', 'away'][i % 3],
+    status: ['online', 'offline', 'away'][i % 3] as 'online' | 'offline' | 'away',
     balance: 0,
     email: '',
     bio: '',
@@ -247,18 +249,14 @@ function App() {
       <div className="flex h-screen bg-background">
         <div className="w-16 border-r flex flex-col items-center py-4 space-y-4 gradient-bg">
           <Button
-            variant={currentPage === 'home' ? 'secondary' : 'ghost'}
-            size="icon"
             onClick={() => setCurrentPage('home')}
-            className="hover:bg-white/20"
+            className={`icon hover:bg-white/20 ${currentPage === 'home' ? 'bg-secondary' : 'bg-ghost'}`}
           >
             <Home className="h-5 w-5 text-white" />
           </Button>
           <Button
-            variant={currentPage === 'profile' ? 'secondary' : 'ghost'}
-            size="icon"
             onClick={() => setCurrentPage('profile')}
-            className="hover:bg-white/20"
+            className={`hover:bg-white/20 ${currentPage === 'profile' ? 'bg-secondary' : 'bg-ghost'}`}
           >
             <Avatar className="h-8 w-8">
               <AvatarImage src={currentUser.avatar} />
@@ -266,34 +264,26 @@ function App() {
             </Avatar>
           </Button>
           <Button
-            variant={currentPage === 'chat' ? 'secondary' : 'ghost'}
-            size="icon"
             onClick={() => setCurrentPage('chat')}
-            className="hover:bg-white/20"
+            className={`hover:bg-white/20 ${currentPage === 'chat' ? 'bg-secondary' : 'bg-ghost'}`}
           >
             <MessageSquare className="h-5 w-5 text-white" />
           </Button>
           <Button
-            variant={currentPage === 'friends' ? 'secondary' : 'ghost'}
-            size="icon"
             onClick={() => setCurrentPage('friends')}
-            className="hover:bg-white/20"
+            className={`hover:bg-white/20 ${currentPage === 'friends' ? 'bg-secondary' : 'bg-ghost'}`}
           >
             <Users className="h-5 w-5 text-white" />
           </Button>
           <Button
-            variant={currentPage === 'notifications' ? 'secondary' : 'ghost'}
-            size="icon"
+            className={`hover:bg-white/20 ${currentPage === 'notifications' ? 'bg-secondary' : 'bg-ghost'}`}
             onClick={() => setCurrentPage('notifications')}
-            className="hover:bg-white/20"
           >
             <Bell className="h-5 w-5 text-white" />
           </Button>
           <Button
-            variant={currentPage === 'settings' ? 'secondary' : 'ghost'}
-            size="icon"
+            className={`hover:bg-white/20 ${currentPage === 'settings' ? 'bg-secondary' : 'bg-ghost'}`}
             onClick={() => setCurrentPage('settings')}
-            className="hover:bg-white/20"
           >
             <Settings className="h-5 w-5 text-white" />
           </Button>
