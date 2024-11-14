@@ -3,6 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { Button } from './ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card';
 import { Post } from '@/lib/types';
+import Image from 'next/image';
 
 interface PostCardProps {
   post: Post;
@@ -31,10 +32,13 @@ export function PostCard({ post, onLike, onRepost }: PostCardProps) {
       <CardContent className="p-4 pt-0">
         <p className="mb-4">{post.content}</p>
         {post.image && (
-          <img
+          <Image
             src={post.image}
             alt="Post content"
             className="rounded-lg w-full object-cover max-h-96"
+            layout="responsive"
+            width={700}
+            height={475}
           />
         )}
       </CardContent>
