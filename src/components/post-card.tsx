@@ -36,7 +36,6 @@ export function PostCard({ post, onLike, onRepost }: PostCardProps) {
             src={post.image}
             alt="Post content"
             className="rounded-lg w-full object-cover max-h-96"
-            layout="responsive"
             width={700}
             height={475}
           />
