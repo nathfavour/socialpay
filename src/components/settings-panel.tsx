@@ -11,14 +11,16 @@ export function SettingsPanel() {
           <h2 className="text-2xl font-bold mb-4 capitalize">{category}</h2>
           <div className="space-y-3">
             {options.map((option) => {
-              const IconComponent = Icons[option.icon as keyof typeof Icons];
+              const IconComponent = Icons[option.icon as keyof typeof Icons] as React.ElementType;
               return (
                 <Card key={option.title} className="p-4">
                   <Button
                     variant="ghost"
                     className="w-full justify-start hover:bg-accent/10"
                   >
-                    <IconComponent className="mr-2 h-5 w-5 text-accent" />
+                    {IconComponent ? (
+                      <IconComponent className="mr-2 h-5 w-5 text-accent" />
+                    ) : null}
                     {option.title}
                   </Button>
                 </Card>
