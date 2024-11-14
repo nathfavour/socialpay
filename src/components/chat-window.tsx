@@ -69,7 +69,7 @@ export function ChatWindow({ chat, onClose, onSendMoney, onVoiceCall, onVideoCal
             Hey! How are you?
           </Card>
           <Card className="mr-auto max-w-[80%] p-3">
-            I'm good! Just sent you the payment 😊
+            I&apos;m good! Just sent you the payment 😊
           </Card>
         </div>
       </ScrollArea>
